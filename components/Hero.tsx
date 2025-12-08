@@ -18,7 +18,6 @@ export default function Hero() {
     <section
       style={{
         position: "relative",
-        minHeight: "100vh",
         minHeight: "100dvh",
         overflow: "hidden",
         display: "flex",
