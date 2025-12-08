@@ -8,7 +8,7 @@ export default function Hero() {
     <section className="hero-section">
       {/* Background Image */}
       <Image
-        src="/hero-arch.jpg"
+        src="/hero-arch.jpeg"
         alt="Architectural arch"
         fill
         priority
@@ -65,7 +65,7 @@ export default function Hero() {
         .hero-overlay {
           position: absolute;
           inset: 0;
-          background: rgba(54, 76, 87, 0.85);
+          background: rgba(54, 76, 87, 0.6);
         }
 
         /* Mobile-first: base styles for small screens */
@@ -79,7 +79,7 @@ export default function Hero() {
           max-width: 1200px;
           width: 100%;
           margin: 0 auto;
-          padding: 0 32px;
+          padding: 0 48px;
         }
 
         .hero-inner {
@@ -169,7 +169,7 @@ export default function Hero() {
         /* Larger mobile / small tablets (480px and up) */
         @media (min-width: 480px) {
           .hero-content {
-            padding: 0 40px;
+            padding: 0 56px;
           }
 
           .hero-title {
