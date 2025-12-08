@@ -10,13 +10,65 @@ export default function Header() {
     <header className="header">
       <div className="header-inner">
         {/* Logo */}
-        <Link href="/" className="logo">
-          <div className="logo-icon">
-            <span className="logo-letter">K</span>
+        <Link
+          href="/"
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            gap: "8px",
+            textDecoration: "none",
+          }}
+        >
+          <div
+            style={{
+              width: "36px",
+              height: "36px",
+              minWidth: "36px",
+              border: "2px solid #CFD1C6",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <span
+              style={{
+                color: "#CFD1C6",
+                fontFamily: "var(--font-playfair), Georgia, serif",
+                fontSize: "20px",
+                fontWeight: 500,
+              }}
+            >
+              K
+            </span>
           </div>
-          <div className="logo-text">
-            <span className="logo-title">Keystone</span>
-            <span className="logo-subtitle">Public Relations</span>
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            <span
+              style={{
+                color: "#CFD1C6",
+                fontSize: "14px",
+                fontWeight: 500,
+                letterSpacing: "0.2em",
+                fontFamily: "var(--font-playfair), Georgia, serif",
+                textTransform: "uppercase",
+                lineHeight: 1.2,
+              }}
+            >
+              Keystone
+            </span>
+            <span
+              style={{
+                color: "#CFD1C6",
+                fontSize: "7px",
+                fontWeight: 500,
+                letterSpacing: "0.15em",
+                fontFamily: "var(--font-opensans), system-ui, sans-serif",
+                textTransform: "uppercase",
+                lineHeight: 1.3,
+              }}
+            >
+              Public Relations
+            </span>
           </div>
         </Link>
 
@@ -78,56 +130,6 @@ export default function Header() {
           display: flex;
           align-items: center;
           justify-content: space-between;
-        }
-
-        /* Logo Styles */
-        .logo {
-          display: inline-flex;
-          align-items: center;
-          gap: 8px;
-          text-decoration: none;
-        }
-
-        .logo-icon {
-          width: 36px;
-          height: 36px;
-          min-width: 36px;
-          border: 2px solid #CFD1C6;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-
-        .logo-letter {
-          color: #CFD1C6;
-          font-family: var(--font-playfair), Georgia, serif;
-          font-size: 20px;
-          font-weight: 500;
-        }
-
-        .logo-text {
-          display: flex;
-          flex-direction: column;
-        }
-
-        .logo-title {
-          color: #CFD1C6;
-          font-size: 14px;
-          font-weight: 500;
-          letter-spacing: 0.2em;
-          font-family: var(--font-playfair), Georgia, serif;
-          text-transform: uppercase;
-          line-height: 1.2;
-        }
-
-        .logo-subtitle {
-          color: #CFD1C6;
-          font-size: 7px;
-          font-weight: 500;
-          letter-spacing: 0.15em;
-          font-family: var(--font-opensans), system-ui, sans-serif;
-          text-transform: uppercase;
-          line-height: 1.3;
         }
 
         /* Hamburger Button */
@@ -232,30 +234,6 @@ export default function Header() {
         @media (min-width: 768px) {
           .header {
             padding: 24px 48px;
-          }
-
-          .logo {
-            gap: 12px;
-          }
-
-          .logo-icon {
-            width: 44px;
-            height: 44px;
-            min-width: 44px;
-          }
-
-          .logo-letter {
-            font-size: 24px;
-          }
-
-          .logo-title {
-            font-size: 18px;
-            letter-spacing: 0.25em;
-          }
-
-          .logo-subtitle {
-            font-size: 9px;
-            letter-spacing: 0.18em;
           }
 
           .hamburger {
