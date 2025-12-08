@@ -7,22 +7,90 @@ export default function Header() {
     <header className="header">
       <div className="header-inner">
         {/* Logo */}
-        <Link href="/" className="logo">
-          <div className="logo-icon">
-            <span>K</span>
+        <Link
+          href="/"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "8px",
+            textDecoration: "none",
+          }}
+        >
+          <div
+            style={{
+              width: "44px",
+              height: "44px",
+              border: "2px solid #CFD1C6",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <span
+              style={{
+                color: "#CFD1C6",
+                fontFamily: "var(--font-playfair), Georgia, serif",
+                fontSize: "24px",
+                fontWeight: 500,
+              }}
+            >
+              K
+            </span>
           </div>
-          <div className="logo-text">
-            <p className="logo-title">Keystone</p>
-            <p className="logo-subtitle">Public Relations</p>
+          <div>
+            <p
+              style={{
+                color: "#CFD1C6",
+                fontSize: "18px",
+                fontWeight: 500,
+                letterSpacing: "0.25em",
+                fontFamily: "var(--font-playfair), Georgia, serif",
+                margin: 0,
+                textTransform: "uppercase",
+              }}
+            >
+              Keystone
+            </p>
+            <p
+              style={{
+                color: "#CFD1C6",
+                fontSize: "10px",
+                fontWeight: 500,
+                letterSpacing: "0.2em",
+                fontFamily: "var(--font-opensans), system-ui, sans-serif",
+                margin: 0,
+                textTransform: "uppercase",
+              }}
+            >
+              Public Relations
+            </p>
           </div>
         </Link>
 
         {/* Navigation */}
         <nav className="nav">
-          <Link href="/" className="nav-link">
+          <Link
+            href="/"
+            style={{
+              color: "#CFD1C6",
+              fontSize: "13px",
+              fontWeight: 500,
+              fontFamily: "var(--font-opensans), system-ui, sans-serif",
+              textDecoration: "none",
+            }}
+          >
             Home
           </Link>
-          <Link href="/services" className="nav-link">
+          <Link
+            href="/services"
+            style={{
+              color: "#CFD1C6",
+              fontSize: "13px",
+              fontWeight: 500,
+              fontFamily: "var(--font-opensans), system-ui, sans-serif",
+              textDecoration: "none",
+            }}
+          >
             Services
           </Link>
         </nav>

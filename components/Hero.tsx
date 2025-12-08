@@ -54,7 +54,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <style jsx>{`
+      <style jsx global>{`
         .hero-section {
           position: relative;
           min-height: 100dvh;
@@ -64,7 +64,7 @@ export default function Hero() {
         .hero-overlay {
           position: absolute;
           inset: 0;
-          background: linear-gradient(135deg, rgba(45, 55, 65, 0.88) 0%, rgba(35, 45, 55, 0.92) 50%, rgba(25, 35, 42, 0.95) 100%);
+          background: rgba(54, 76, 87, 0.85);
         }
 
         .hero-content {
@@ -77,7 +77,7 @@ export default function Hero() {
           max-width: 1200px;
           width: 100%;
           margin: 0 auto;
-          padding: 0 40px;
+          padding: 0 48px;
         }
 
         .hero-inner {
@@ -86,40 +86,42 @@ export default function Hero() {
 
         .hero-title {
           font-family: var(--font-playfair), Georgia, serif;
-          font-size: 1.85rem;
+          font-size: 3.3rem;
           font-weight: 400;
-          color: #E0E5DF;
+          color: #FFFEF8;
           line-height: 1.15;
-          margin-bottom: 20px;
+          margin-bottom: 24px;
         }
 
         .hero-description {
           font-family: var(--font-opensans), system-ui, sans-serif;
-          font-size: 0.9rem;
+          font-size: 1rem;
           font-weight: 400;
-          color: #E0E5DF;
-          line-height: 1.6;
-          margin-bottom: 24px;
+          color: #FFFEF8;
+          line-height: 1.7;
+          margin-bottom: 32px;
           max-width: 540px;
         }
 
         .hero-buttons {
           display: flex;
           flex-direction: column;
-          align-items: flex-start;
-          gap: 10px;
+          gap: 12px;
+          width: 100%;
+          max-width: 400px;
         }
 
         .btn-primary {
-          display: inline-flex;
+          display: flex;
           align-items: center;
           justify-content: center;
-          padding: 10px 14px;
+          width: 100%;
+          padding: 18px 36px;
           background-color: #0A2037;
           border: 1px solid #0A2037;
           color: #ffffff;
           font-family: var(--font-opensans), system-ui, sans-serif;
-          font-size: 0.7rem;
+          font-size: 1.05rem;
           font-weight: 600;
           text-decoration: none;
           transition: all 0.3s ease;
@@ -130,15 +132,16 @@ export default function Hero() {
         }
 
         .btn-secondary {
-          display: inline-flex;
+          display: flex;
           align-items: center;
           justify-content: center;
-          padding: 10px 14px;
+          width: 70%;
+          padding: 18px 36px;
           background-color: transparent;
-          border: 1px solid rgba(255, 255, 255, 0.4);
-          color: #ffffff;
+          border: 1px solid #CFD1C6;
+          color: #CFD1C6;
           font-family: var(--font-opensans), system-ui, sans-serif;
-          font-size: 0.7rem;
+          font-size: 1.05rem;
           font-weight: 600;
           text-decoration: none;
           transition: all 0.3s ease;
@@ -150,11 +153,11 @@ export default function Hero() {
 
         @media (min-width: 640px) {
           .hero-content {
-            padding: 0 48px;
+            padding: 0 80px;
           }
 
           .hero-title {
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-size: clamp(3.3rem, 4.5vw, 4rem);
             margin-bottom: clamp(28px, 4vh, 40px);
           }
 
@@ -163,10 +166,14 @@ export default function Hero() {
             margin-bottom: clamp(32px, 5vh, 48px);
           }
 
-          .btn-primary,
+          .btn-primary {
+            padding: 18px 40px;
+            font-size: 1rem;
+          }
+
           .btn-secondary {
-            padding: 12px 18px;
-            font-size: 0.85rem;
+            padding: 18px 40px;
+            font-size: 1rem;
           }
         }
       `}</style>
