@@ -1,8 +1,11 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 
 export default function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <header className="header">
       <div className="header-inner">
@@ -12,13 +15,24 @@ export default function Header() {
             <span className="logo-letter">K</span>
           </div>
           <div className="logo-text">
-            <p className="logo-title">Keystone</p>
-            <p className="logo-subtitle">Public Relations</p>
+            <span className="logo-title">Keystone</span>
+            <span className="logo-subtitle">Public Relations</span>
           </div>
         </Link>
 
-        {/* Navigation */}
-        <nav className="nav">
+        {/* Hamburger Button - Mobile Only */}
+        <button
+          className="hamburger"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label="Toggle menu"
+        >
+          <span className={`hamburger-line ${isMenuOpen ? "open" : ""}`}></span>
+          <span className={`hamburger-line ${isMenuOpen ? "open" : ""}`}></span>
+          <span className={`hamburger-line ${isMenuOpen ? "open" : ""}`}></span>
+        </button>
+
+        {/* Desktop Navigation */}
+        <nav className="nav-desktop">
           <Link href="/" className="nav-link">
             Home
           </Link>
@@ -28,15 +42,34 @@ export default function Header() {
         </nav>
       </div>
 
+      {/* Mobile Navigation Overlay */}
+      <div className={`mobile-menu ${isMenuOpen ? "open" : ""}`}>
+        <nav className="mobile-nav">
+          <Link
+            href="/"
+            className="mobile-nav-link"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Home
+          </Link>
+          <Link
+            href="/services"
+            className="mobile-nav-link"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Services
+          </Link>
+        </nav>
+      </div>
+
       <style jsx>{`
-        /* Mobile-first base styles */
         .header {
           position: absolute;
           top: 0;
           left: 0;
           right: 0;
           z-index: 50;
-          padding: 12px 16px;
+          padding: 16px 20px;
         }
 
         .header-inner {
@@ -47,35 +80,34 @@ export default function Header() {
           justify-content: space-between;
         }
 
+        /* Logo Styles */
         .logo {
-          display: flex;
-          flex-direction: row;
+          display: inline-flex;
           align-items: center;
-          gap: 6px;
+          gap: 8px;
           text-decoration: none;
-          flex-wrap: nowrap;
         }
 
         .logo-icon {
-          width: 32px;
-          height: 32px;
-          border: 1.5px solid #CFD1C6;
+          width: 36px;
+          height: 36px;
+          min-width: 36px;
+          border: 2px solid #CFD1C6;
           display: flex;
           align-items: center;
           justify-content: center;
-          flex-shrink: 0;
-        }
-
-        .logo-text {
-          flex-shrink: 0;
-          white-space: nowrap;
         }
 
         .logo-letter {
           color: #CFD1C6;
           font-family: var(--font-playfair), Georgia, serif;
-          font-size: 18px;
+          font-size: 20px;
           font-weight: 500;
+        }
+
+        .logo-text {
+          display: flex;
+          flex-direction: column;
         }
 
         .logo-title {
@@ -84,31 +116,65 @@ export default function Header() {
           font-weight: 500;
           letter-spacing: 0.2em;
           font-family: var(--font-playfair), Georgia, serif;
-          margin: 0;
           text-transform: uppercase;
           line-height: 1.2;
         }
 
         .logo-subtitle {
           color: #CFD1C6;
-          font-size: 8px;
+          font-size: 7px;
           font-weight: 500;
           letter-spacing: 0.15em;
           font-family: var(--font-opensans), system-ui, sans-serif;
-          margin: 0;
           text-transform: uppercase;
-          line-height: 1.2;
+          line-height: 1.3;
         }
 
-        .nav {
+        /* Hamburger Button */
+        .hamburger {
           display: flex;
+          flex-direction: column;
+          justify-content: center;
+          gap: 5px;
+          width: 28px;
+          height: 28px;
+          background: none;
+          border: none;
+          cursor: pointer;
+          padding: 0;
+          z-index: 60;
+        }
+
+        .hamburger-line {
+          display: block;
+          width: 100%;
+          height: 2px;
+          background-color: #CFD1C6;
+          transition: all 0.3s ease;
+        }
+
+        .hamburger-line.open:nth-child(1) {
+          transform: translateY(7px) rotate(45deg);
+        }
+
+        .hamburger-line.open:nth-child(2) {
+          opacity: 0;
+        }
+
+        .hamburger-line.open:nth-child(3) {
+          transform: translateY(-7px) rotate(-45deg);
+        }
+
+        /* Desktop Navigation - Hidden on mobile */
+        .nav-desktop {
+          display: none;
           align-items: center;
-          gap: 12px;
+          gap: 24px;
         }
 
         .nav-link {
           color: #CFD1C6;
-          font-size: 12px;
+          font-size: 14px;
           font-weight: 500;
           font-family: var(--font-opensans), system-ui, sans-serif;
           text-decoration: none;
@@ -119,112 +185,50 @@ export default function Header() {
           color: #ffffff;
         }
 
-        /* Small mobile (375px and up) */
-        @media (min-width: 375px) {
-          .header {
-            padding: 14px 20px;
-          }
-
-          .logo {
-            gap: 8px;
-          }
-
-          .logo-icon {
-            width: 36px;
-            height: 36px;
-          }
-
-          .logo-letter {
-            font-size: 20px;
-          }
-
-          .logo-title {
-            font-size: 15px;
-            letter-spacing: 0.22em;
-          }
-
-          .logo-subtitle {
-            font-size: 9px;
-          }
-
-          .nav {
-            gap: 16px;
-          }
-
-          .nav-link {
-            font-size: 13px;
-          }
+        /* Mobile Menu Overlay */
+        .mobile-menu {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: rgba(54, 76, 87, 0.98);
+          z-index: 55;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          opacity: 0;
+          visibility: hidden;
+          transition: all 0.3s ease;
         }
 
-        /* Larger mobile / small tablets (480px and up) */
-        @media (min-width: 480px) {
-          .header {
-            padding: 16px 24px;
-          }
-
-          .logo-icon {
-            width: 40px;
-            height: 40px;
-            border-width: 2px;
-          }
-
-          .logo-letter {
-            font-size: 22px;
-          }
-
-          .logo-title {
-            font-size: 16px;
-          }
-
-          .logo-subtitle {
-            font-size: 9px;
-            letter-spacing: 0.18em;
-          }
-
-          .nav {
-            gap: 20px;
-          }
+        .mobile-menu.open {
+          opacity: 1;
+          visibility: visible;
         }
 
-        /* Tablet breakpoint (640px and up) */
-        @media (min-width: 640px) {
-          .header {
-            padding: 20px 32px;
-          }
-
-          .logo {
-            gap: 10px;
-          }
-
-          .logo-icon {
-            width: 44px;
-            height: 44px;
-          }
-
-          .logo-letter {
-            font-size: 24px;
-          }
-
-          .logo-title {
-            font-size: 17px;
-            letter-spacing: 0.24em;
-          }
-
-          .logo-subtitle {
-            font-size: 10px;
-            letter-spacing: 0.2em;
-          }
-
-          .nav {
-            gap: 24px;
-          }
-
-          .nav-link {
-            font-size: 14px;
-          }
+        .mobile-nav {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 32px;
         }
 
-        /* Desktop breakpoint (768px and up) */
+        .mobile-nav-link {
+          color: #CFD1C6;
+          font-size: 24px;
+          font-weight: 500;
+          font-family: var(--font-playfair), Georgia, serif;
+          text-decoration: none;
+          letter-spacing: 0.1em;
+          transition: color 0.2s ease;
+        }
+
+        .mobile-nav-link:hover {
+          color: #ffffff;
+        }
+
+        /* Tablet and up (768px) - Show desktop nav, hide hamburger */
         @media (min-width: 768px) {
           .header {
             padding: 24px 48px;
@@ -235,12 +239,13 @@ export default function Header() {
           }
 
           .logo-icon {
-            width: 48px;
-            height: 48px;
+            width: 44px;
+            height: 44px;
+            min-width: 44px;
           }
 
           .logo-letter {
-            font-size: 26px;
+            font-size: 24px;
           }
 
           .logo-title {
@@ -248,12 +253,26 @@ export default function Header() {
             letter-spacing: 0.25em;
           }
 
-          .nav {
+          .logo-subtitle {
+            font-size: 9px;
+            letter-spacing: 0.18em;
+          }
+
+          .hamburger {
+            display: none;
+          }
+
+          .nav-desktop {
+            display: flex;
             gap: 32px;
           }
 
           .nav-link {
             font-size: 15px;
+          }
+
+          .mobile-menu {
+            display: none;
           }
         }
       `}</style>
