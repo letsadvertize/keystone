@@ -79,7 +79,7 @@ export default function Hero() {
           max-width: 1200px;
           width: 100%;
           margin: 0 auto;
-          padding: 0 20px;
+          padding: 0 32px;
         }
 
         .hero-inner {
@@ -169,7 +169,7 @@ export default function Hero() {
         /* Larger mobile / small tablets (480px and up) */
         @media (min-width: 480px) {
           .hero-content {
-            padding: 0 32px;
+            padding: 0 40px;
           }
 
           .hero-title {
