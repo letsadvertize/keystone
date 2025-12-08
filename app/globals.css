@@ -16,12 +16,38 @@
   box-sizing: border-box;
 }
 
+html {
+  /* Ensure proper text sizing on mobile */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  /* Base font size for rem calculations - mobile first */
+  font-size: 16px;
+}
+
 html, body {
   min-height: 100%;
+  /* Prevent horizontal overflow on mobile */
+  overflow-x: hidden;
+  width: 100%;
 }
 
 body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Ensure proper line height for readability */
+  line-height: 1.5;
+}
+
+/* Ensure images don't overflow their containers */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Reset button styling */
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
 }
