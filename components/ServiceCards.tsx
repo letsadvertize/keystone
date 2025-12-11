@@ -71,7 +71,6 @@ const services: Service[] = [
       "Risk-aware brand building",
       "Pre-crisis planning",
     ],
-    isNew: true,
   },
   {
     id: 6,
