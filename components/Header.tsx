@@ -25,7 +25,7 @@ export default function Header() {
               width: "36px",
               height: "36px",
               minWidth: "36px",
-              border: "2px solid #ffffff",
+              border: "2px solid #F9F2E2",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -33,7 +33,7 @@ export default function Header() {
           >
             <span
               style={{
-                color: "#ffffff",
+                color: "#F9F2E2",
                 fontFamily: "var(--font-playfair), Georgia, serif",
                 fontSize: "20px",
                 fontWeight: 500,
@@ -45,7 +45,7 @@ export default function Header() {
           <div style={{ display: "flex", flexDirection: "column" }}>
             <span
               style={{
-                color: "#ffffff",
+                color: "#F9F2E2",
                 fontSize: "14px",
                 fontWeight: 500,
                 letterSpacing: "0.2em",
@@ -58,7 +58,7 @@ export default function Header() {
             </span>
             <span
               style={{
-                color: "#ffffff",
+                color: "#F9F2E2",
                 fontSize: "7px",
                 fontWeight: 500,
                 letterSpacing: "0.15em",
